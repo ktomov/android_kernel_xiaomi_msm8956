@@ -245,12 +245,15 @@ static int boost_mig_sync_thread(void *data)
 	unsigned long flags;
 	unsigned int req_freq;
 
-	while (1) {
-		wait_event_interruptible(s->sync_wq,
-					s->pending || kthread_should_stop());
+	while(1) {
+		ret = wait_event_interruptible(s->sync_wq, s->pending ||
+					kthread_should_stop());
 
 		if (kthread_should_stop())
 			break;
+
+		if (ret == -ERESTARTSYS)
+			continue;
 
 		spin_lock_irqsave(&s->lock, flags);
 		s->pending = false;
