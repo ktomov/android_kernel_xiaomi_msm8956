@@ -23,16 +23,16 @@
 #include "cpufreq_governor.h"
 
 /* alucard governor macros */
-#define FREQ_RESPONSIVENESS			1113600
+#define FREQ_RESPONSIVENESS			883200
 
 #define CPUS_DOWN_RATE				1
 #define CPUS_UP_RATE				1
-#define DEC_CPU_LOAD				70
-#define DEC_CPU_LOAD_AT_MIN_FREQ	60
-#define INC_CPU_LOAD				70
-#define INC_CPU_LOAD_AT_MIN_FREQ	60
+#define DEC_CPU_LOAD				90
+#define DEC_CPU_LOAD_AT_MIN_FREQ	70
+#define INC_CPU_LOAD				90
+#define INC_CPU_LOAD_AT_MIN_FREQ	70
 
-#define DEF_SAMPLING_RATE			(20000)
+#define DEF_SAMPLING_RATE			(50000)
 #define MIN_SAMPLING_RATE			(10000)
 
 /* Pump Inc/Dec for all cores */
